@@ -1,0 +1,23 @@
+<div>
+    {% extends "AppPlayground/profesores.html" %}
+    {% load static %}
+    
+    {% block getProfesor %}
+    <p>Consultar Profesor</p>
+    <form action="/AppPlayground/buscarProfesores/" method="get">
+        <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if profesores %}
+        <h2>Lista de Profesores:</h2>
+        <ul>
+            {% for profesor in profesores %}
+                <li>{{ profesor.nombre }} {{ profesor.apellido }} - {{ profesor.email }} - {{ profeosr.profesion }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron profesores.</p>
+    {% endif %}
+{% endblock %}    
+</div>

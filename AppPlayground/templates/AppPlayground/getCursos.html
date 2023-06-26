@@ -1,0 +1,23 @@
+<div>
+    {% extends "AppPlayground/cursos.html" %}
+    {% load static %}
+    
+    {% block getCurso %}
+    <p>Consultar Cursos</p>
+    <form action="/AppPlayground/buscarCursos/" method="get">
+        <input placeholder="Nombre" type="text" name="nombre" id="nombre">
+        <input type="submit" value="Buscar">
+    </form>
+
+    {% if cursos %}
+        <h2>Lista de Cursos:</h2>
+        <ul>
+            {% for curso in cursos %}
+                <li>{{ curso.nombre }} {{ curso.camada }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No se encontraron cursos.</p>
+    {% endif %}
+{% endblock %}    
+</div>

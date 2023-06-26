@@ -1,0 +1,45 @@
+{% extends "AppPlayground/inicio.html" %}
+{% load static %}
+
+{% block contenidoQueCambia %}
+    <div class="container py-5">
+        <div class="jumbotron" style="background-color: rgba(255, 255, 255, 0.8); padding: 20px;">
+            <h2 style="color: #333;">Cursos</h2>
+            <p style="color: #333;">¡Explora nuestros cursos y aprovecha al máximo tus conocimientos!</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="card mb-3" style="background-color: rgba(255, 255, 255, 0.8); border: none;">
+                    <div class="card-header" style="border-bottom: 1px solid #dee2e6;">
+                        <h4 class="card-title" style="margin-bottom: 0; color: #333;">Ingresar Cursos</h4>
+                    </div>
+                    <div class="card-body" style="padding: 20px;">
+                        {% block setCurso %}
+                        {% endblock %}
+                    </div>
+                    <div class="card-footer" style="background-color: rgba(255, 255, 255, 0.8); border-top: 1px solid #dee2e6; text-align: center;">
+                        <a class="btn btn-primary btn-lg btn-block" href="{% url 'setCursos' %}" style="background-color: #000000; border-color: #000000;">Ingresar Cursos</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card mb-3" style="background-color: rgba(255, 255, 255, 0.8); border: none;">
+                    <div class="card-header" style="border-bottom: 1px solid #dee2e6;">
+                        <h4 class="card-title" style="margin-bottom: 0; color: #333;">Consultar Cursos</h4>
+                    </div>
+                    <div class="card-body" style="padding: 20px;">
+                        {% block getCurso %}
+                        {% endblock %}
+                    </div>
+                    <div class="card-footer" style="background-color: rgba(255, 255, 255, 0.8); border-top: 1px solid #dee2e6; text-align: center;">
+                        <a class="btn btn-primary btn-lg btn-block" href="{% url 'buscarCursos' %}" style="background-color: #000000; border-color: #000000;">Consultar Cursos</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

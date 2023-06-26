@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{% static 'AppPlayground/css/derickStyle.css'%}" rel="stylesheet"/>
+    <link href="{% static 'AppPlayground/css/bootstrap.min.css'%}" rel="stylesheet"/>
+    <script src="{% static 'AppPlayground/js/bootstrap.min.js'%}"></script>
+    <style>
+        .background-image {
+            background-image: url("https://4kwallpapers.com/images/wallpapers/blue-sky-half-moon-crescent-moon-clouds-star-trails-5k-3840x2160-8404.png");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .content {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+            max-width: 600px;
+            border-radius: 10px;
+            margin: 20px;
+        }
+        
+        .content h1 {
+            font-size: 40px;
+            margin-bottom: 20px;
+        }
+        
+        .content p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+        
+        .content a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            background-color: #17a2b8;
+            transition: background-color 0.3s ease;
+        }
+        
+        .content a:hover {
+            background-color: #138496;
+        }
+        
+        .navbar-brand {
+            font-size: 24px;
+            font-weight: bold;
+        }
+        
+        .navbar-nav .nav-link {
+            font-size: 18px;
+        }
+    </style>
+    <title>Inicio | AppPlayground</title>
+</head>
+<body>
+    <!-- header -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark" id="mainNav">
+        <div class="container px-4 px-lg-5">
+            <a class="navbar-brand" href="{% url 'Inicio' %}">App Playground</a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                Menu
+                <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Cursos' %}">Cursos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Estudiantes' %}">Estudiantes</a></li>
+                    <li class="nav-item"><a class="nav-link" href="{% url 'Profesores' %}">Profesores</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="background-image">
+        {% block contenidoQueCambia %}
+            <div class="container py-5">
+                <div class="jumbotron">
+                    {% block bienvenida %}
+                        <div class="content">
+                            <h1 class="display-4">¡Bienvenido a AppPlayground!</h1>
+                            <p class="lead">AppPlayground es una aplicación que te permite guardar y administrar datos relacionados con cursos, estudiantes y profesores. Explora nuestras características y aprovecha al máximo la plataforma.</p>
+                        </div>
+                    {% endblock %}
+                </div>
+            </div>
+        {% endblock %}
+    </div>
+    
+</body>
+</html>
+
