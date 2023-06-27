@@ -99,7 +99,9 @@ def buscarProfesores(request):
 
 
 
-
+def mostrarTodosEstudiantes(request):
+    Estudiantes = Estudiante.objects.all()
+    return render(request, "AppCoder/estudiantes.html",{"Estudiantes": Estudiantes})
 
 
     
